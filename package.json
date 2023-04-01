@@ -1,0 +1,33 @@
+{
+  "name": "@plocca/streamelements-widget-events",
+  "version": "1.0.0",
+  "description": "StreamElements Widget JS Window Event API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/plocca/streamelements-widget-events.git"
+  },
+  "keywords": [
+    "stream-elements",
+    "streamelements",
+    "widget",
+    "typescript",
+    "ts",
+    "interface"
+  ],
+  "author": "plocca-eng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plocca/streamelements-widget-events/issues"
+  },
+  "homepage": "https://github.com/plocca/streamelements-widget-events#readme",
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "typescript": "^5.0.3"
+  }
+}
