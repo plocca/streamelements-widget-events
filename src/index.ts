@@ -63,7 +63,7 @@ export enum SubscribeTier {
 /**
  * Represents an event that StreamElements might fire.
  */
-export interface Event {}
+export interface Event {} // tslint:disable-line:no-empty-interface
 
 /**
  * Event fired given a follower-latest event.
@@ -460,7 +460,10 @@ export interface DeleteMessagesEvent extends Event {
 /**
  * Event fired for widget-button
  */
-export interface WidgetButtonEvent extends Event {}
+export interface WidgetButtonEvent extends Event {
+  /** The key of the button */
+  field: string
+}
 
 /**
  * Base object that StreamElements fires in a window.event.
@@ -485,7 +488,7 @@ export function delegateEvent(
   delegates: EventDelegateMap
 ) {
   const { event } = eventObject.detail;
-  const evtHandler = delegates[eventObject.detail.listener] || (() => {});
+  const evtHandler = delegates[eventObject.detail.listener] || (() => undefined);
 
   switch (eventObject.detail.listener) {
     case WindowEventType.FollowerLatest:
