@@ -39,6 +39,15 @@ window.addEventListener(WindowEventType.FollowerLatest, (evt: EventObject)) {
 }
 ```
 
+Check out how autocomplete works in my editor `nvim`:
+
+![autocomplete](./.github/autocomplete.png)
+
+Some common ways to get autocomplete working in your editor are:
+
+* Via [Typescript in Visual Studio Code](https://code.visualstudio.com/docs/languages/typescript)
+* Via [coc-tsserver for neovim](https://github.com/neoclide/coc-tsserver)
+
 ## Getting Started
 
 Cool, you're on-board! Here's how you can get started!
@@ -72,3 +81,14 @@ const ourListener = (obj: StreamElements.EventObject) => StreamElements.delegate
 
 window.addEventListener(StreamElements.WindowEvent.EventReceived, ourListener);
 ```
+
+## Contributing
+
+Please see the [CONTRIBUTING.md](./CONTRIBUTING.md) document for info on how to
+contribute!
+
+## License
+
+This software is licensed under the MIT license! That means anyone can use it,
+but we take no responsibility in this software's efficacy! See
+[LICENSE.md](./LICENSE.md) for detailed info.
