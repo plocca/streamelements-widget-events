@@ -1,6 +1,6 @@
 export enum WindowEventType {
   /** Fired when a new follower comes through */
-  FollowerLatest = "follower-latest",
+  FollowerLatest = 'follower-latest',
   /**
    * Fired when a new subscriber comes through.
    *
@@ -9,41 +9,41 @@ export enum WindowEventType {
    * (bulk) subscription, then this event will be fired for the initial bulk
    * gift and then, subsequently, for each receiver.
    */
-  SubscriberLatest = "subscriber-latest",
+  SubscriberLatest = 'subscriber-latest',
   /**
    * Fired for twitch host events.
    *
    * @warn Twitch has removed this feature and this library does not support
    * it.
    */
-  HostLatest = "host-latest",
+  HostLatest = 'host-latest',
   /** Fired when a cheer happens. */
-  CheerLatest = "cheer-latest",
+  CheerLatest = 'cheer-latest',
   /** Fired for a tip. */
-  TipLatest = "tip-latest",
+  TipLatest = 'tip-latest',
   /** Fired for a raid. */
-  RaidLatest = "raid-latest",
+  RaidLatest = 'raid-latest',
   /** Fired for a chat message */
-  Message = "message",
+  Message = 'message',
   /** Fired when a moderator deletes a message */
-  DeleteMessage = "delete-message",
+  DeleteMessage = 'delete-message',
   /** Fired when a moderator removes all the messages of a user */
-  DeleteMessages = "delete-messages",
+  DeleteMessages = 'delete-messages',
   /** Unknown and unsupported */
-  EventSkip = "event:skip",
+  EventSkip = 'event:skip',
   /** Unknown and unsupported */
-  AlertServiceToggleSound = "alertService:toggleSound",
+  AlertServiceToggleSound = 'alertService:toggleSound',
   /** Unknown and unsupported */
-  BotCounter = "bot:counter",
+  BotCounter = 'bot:counter',
   /**
    * Fired when the internal StreamElements KV Store is updated. Unsupported.
    */
-  KvStoreUpdate = "kvstore:update",
+  KvStoreUpdate = 'kvstore:update',
   /**
    * Fired when a button in the left tab for customizing widget behavior is
    * clicked.
    */
-  WidgetButton = "widget-button",
+  WidgetButton = 'widget-button',
 }
 
 /**
@@ -51,13 +51,13 @@ export enum WindowEventType {
  */
 export enum SubscribeTier {
   /** Amazon Prime */
-  Prime = "prime",
+  Prime = 'prime',
   /** 4.99$ */
-  First = "1000",
+  First = '1000',
   /** 9.99$ */
-  Second = "2000",
+  Second = '2000',
   /** 24.99$ */
-  Third = "3000",
+  Third = '3000',
 }
 
 /**
@@ -269,22 +269,22 @@ export interface RaidLatestEvent extends Event {
  * The services that are supported on StreamElements.
  */
 export enum SupportedService {
-  Twitch = "twitch",
-  Youtube = "youtube",
-  Mixer = "mixer",
+  Twitch = 'twitch',
+  Youtube = 'youtube',
+  Mixer = 'mixer',
 }
 
 /**
  * The badges that are supported on StreamElements.
  */
 export enum SupportedBadge {
-  Broadcaster = "broadcaster",
-  Moderator = "moderator",
-  VIP = "vip",
-  ArtistBadge = "artist-badge",
-  Subscriber = "subscriber",
-  Premium = "premium",
-  Partner = "partner",
+  Broadcaster = 'broadcaster',
+  Moderator = 'moderator',
+  VIP = 'vip',
+  ArtistBadge = 'artist-badge',
+  Subscriber = 'subscriber',
+  Premium = 'premium',
+  Partner = 'partner',
 }
 
 /**
@@ -314,11 +314,11 @@ export interface Emote {
   /** The URLs to the emote image */
   urls: {
     /** 1x Resolution */
-    "1": string;
+    '1': string;
     /** 2x Resolution */
-    "2": string;
+    '2': string;
     /** 4x Resolution */
-    "4": string;
+    '4': string;
   };
   /** The character at which the emote starts. */
   start: number;
@@ -337,7 +337,7 @@ export interface MessageEvent extends Event {
     time: number;
     tags: {
       /** Unknown */
-      "badge-info": string;
+      'badge-info': string;
 
       /**
        * Comma-separated string of tags and versions in format "<badge>/<version>,"[]
@@ -358,7 +358,7 @@ export interface MessageEvent extends Event {
        *
        * Prefer using data.nick
        */
-      "display-name": string;
+      'display-name': string;
 
       /**
        * Comma-separated string of emote-id and character slice "<emote-id>:<begin>-<end>,"[]
@@ -368,7 +368,7 @@ export interface MessageEvent extends Event {
       emotes: string;
 
       /** Whether this is the user's first time chatting in this channel */
-      "first-msg": "0" | "1";
+      'first-msg': '0' | '1';
 
       /** Unknown */
       flags: string;
@@ -377,48 +377,48 @@ export interface MessageEvent extends Event {
       id: string;
 
       /** Whether the user is a moderator */
-      mod: "0" | "1";
+      mod: '0' | '1';
 
       /** Whether the user is returning. */
-      "returning-chatter": "0" | "1";
+      'returning-chatter': '0' | '1';
 
       /** Unknown */
-      "room-id": string;
+      'room-id': string;
 
       /** Whether the user is a subscriber */
-      subscriber: "0" | "1";
+      subscriber: '0' | '1';
 
       /**
        * UNIX Timestamp of when the message was sent.
        *
        * Prefer using data.time
        */
-      "tmi-sent-ts": string;
+      'tmi-sent-ts': string;
 
       /** Whether the user is using Twitch Turbo */
-      turbo: "0" | "1";
+      turbo: '0' | '1';
 
       /** The twitch user's ID */
-      "user-id": string;
+      'user-id': string;
 
       /** Unknown */
-      "user-type": string;
+      'user-type': string;
 
       /** If this message is a reply, then the displayName of the author of the original message.
        */
-      "reply-parent-display-name"?: string;
+      'reply-parent-display-name'?: string;
 
       /** If this message is a reply, then the body of the original message. */
-      "reply-parent-msg-body"?: string;
+      'reply-parent-msg-body'?: string;
 
       /** If this message is a reply, then the id of the original message */
-      "reply-parent-msg-id"?: string;
+      'reply-parent-msg-id'?: string;
 
       /** If this message is a reply, then the id of the original message's author user. */
-      "reply-parent-user-id"?: string;
+      'reply-parent-user-id'?: string;
 
       /** If this message is a reply, then the user nick of the original message's author */
-      "reply-parent-user-login"?: string;
+      'reply-parent-user-login'?: string;
     };
     /** The user's nickname */
     nick: string;
@@ -462,7 +462,7 @@ export interface DeleteMessagesEvent extends Event {
  */
 export interface WidgetButtonEvent extends Event {
   /** The key of the button */
-  field: string
+  field: string;
 }
 
 /**
@@ -483,10 +483,7 @@ type EventDelegateMap = {
   [eventType in WindowEventType]?: (evt: Event) => void;
 };
 
-export function delegateEvent(
-  eventObject: EventObject,
-  delegates: EventDelegateMap
-) {
+export function delegateEvent(eventObject: EventObject, delegates: EventDelegateMap) {
   const { event } = eventObject.detail;
   const evtHandler = delegates[eventObject.detail.listener] || (() => undefined);
 
@@ -516,7 +513,7 @@ export function delegateEvent(
 }
 
 export enum WindowEvent {
-  EventReceived = "onEventReceived",
-  WidgetLoad = "onWidgetLoad",
-  SessionUpdate = "onSessionUpdate",
+  EventReceived = 'onEventReceived',
+  WidgetLoad = 'onWidgetLoad',
+  SessionUpdate = 'onSessionUpdate',
 }
