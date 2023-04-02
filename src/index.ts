@@ -1,6 +1,6 @@
 export enum WindowEventType {
   /** Fired when a new follower comes through */
-  FollowerLatest = 'follower-latest',
+  FollowerLatest = "follower-latest",
   /**
    * Fired when a new subscriber comes through.
    *
@@ -9,41 +9,41 @@ export enum WindowEventType {
    * (bulk) subscription, then this event will be fired for the initial bulk
    * gift and then, subsequently, for each receiver.
    */
-  SubscriberLatest = 'subscriber-latest',
+  SubscriberLatest = "subscriber-latest",
   /**
    * Fired for twitch host events.
    *
    * @warn Twitch has removed this feature and this library does not support
    * it.
    */
-  HostLatest = 'host-latest',
+  HostLatest = "host-latest",
   /** Fired when a cheer happens. */
-  CheerLatest = 'cheer-latest',
+  CheerLatest = "cheer-latest",
   /** Fired for a tip. */
-  TipLatest = 'tip-latest',
+  TipLatest = "tip-latest",
   /** Fired for a raid. */
-  RaidLatest = 'raid-latest',
+  RaidLatest = "raid-latest",
   /** Fired for a chat message */
-  Message = 'message',
+  Message = "message",
   /** Fired when a moderator deletes a message */
-  DeleteMessage = 'delete-message',
+  DeleteMessage = "delete-message",
   /** Fired when a moderator removes all the messages of a user */
-  DeleteMessages = 'delete-messages',
+  DeleteMessages = "delete-messages",
   /** Unknown and unsupported */
-  EventSkip = 'event:skip',
+  EventSkip = "event:skip",
   /** Unknown and unsupported */
-  AlertServiceToggleSound = 'alertService:toggleSound',
+  AlertServiceToggleSound = "alertService:toggleSound",
   /** Unknown and unsupported */
-  BotCounter = 'bot:counter',
+  BotCounter = "bot:counter",
   /**
    * Fired when the internal StreamElements KV Store is updated. Unsupported.
    */
-  KvStoreUpdate = 'kvstore:update',
+  KvStoreUpdate = "kvstore:update",
   /**
    * Fired when a button in the left tab for customizing widget behavior is
    * clicked.
    */
-  WidgetButton = 'widget-button',
+  WidgetButton = "widget-button",
 }
 
 /**
@@ -51,46 +51,44 @@ export enum WindowEventType {
  */
 export enum SubscribeTier {
   /** Amazon Prime */
-  Prime = 'prime',
+  Prime = "prime",
   /** 4.99$ */
-  First = '1000',
+  First = "1000",
   /** 9.99$ */
-  Second = '2000',
+  Second = "2000",
   /** 24.99$ */
-  Third = '3000',
+  Third = "3000",
 }
 
 /**
  * Represents an event that StreamElements might fire.
  */
-export interface Event {
-
-}
+export interface Event {}
 
 /**
  * Event fired given a follower-latest event.
  */
 export interface FollowerLatestEvent extends Event {
   /** Unknown */
-  amount: number
+  amount: number;
   /** Unknown */
-  count: number
+  count: number;
   /** Whether the event is a test event fired from the StreamElements overlay design interface. */
-  isTest: boolean
+  isTest: boolean;
   /** Unknown */
-  items: unknown[]
+  items: unknown[];
   /** Unknown */
-  month: string
+  month: string;
   /** Username of the follower */
-  name: string
+  name: string;
   /** Unknown */
-  originalEventName: string
+  originalEventName: string;
   /** Unknown */
-  sessionTop: boolean
+  sessionTop: boolean;
   /** Unknown */
-  tier: SubscribeTier
+  tier: SubscribeTier;
   /** Unknown */
-  type: string
+  type: string;
 }
 
 /**
@@ -102,69 +100,69 @@ export interface SubscriberLatestEvent extends Event {
    *
    * If this is a gift this will be one, or 2+ if this is a bulk gift.
    */
-  amount: number
+  amount: number;
 
   /** Unknown */
-  count: number
+  count: number;
 
   /**
    * Whether the event is a test event fired from the StreamElements overlay design interface.
    *
    * Appears to be undefined for bulk gifts.
    */
-  isTest?: boolean
+  isTest?: boolean;
 
   /**
    * Unknown
    *
    * Appears to be undefined for bulk gifts.
    */
-  items?: unknown[]
+  items?: unknown[];
 
   /** Subscriber-sent message accompanying the subscribal */
-  message: string
+  message: string;
 
   /**
    * Unknown
    *
    * Appears to be undefined for bulk gifts.
    */
-  month?: string
+  month?: string;
 
   /** Username of the subscriber.
    *
    * If the sub has been gifted, this refers to the receiver. For a bulk gift event, this value
    * will be the same as the sender.
    */
-  name: string
+  name: string;
 
   /** Unknown */
-  originalEventName: string
+  originalEventName: string;
 
   /**
    * Unknown
    *
    * Appears to be undefined for bulk gifts.
    */
-  sessionTop?: boolean
+  sessionTop?: boolean;
 
   /** The tier a twitch user might subscribe on. */
-  tier: SubscribeTier
+  tier: SubscribeTier;
 
   /** Unknown */
-  type: string
+  type: string;
 
   /** If the sub has been gifted, this is defined to be true */
-  gifted?: boolean
+  gifted?: boolean;
 
   /** If the sub has been bulk-gifted, this is defined as true. */
-  bulkGifted?: boolean
+  bulkGifted?: boolean;
 
   /** If the sub is gifted, then this will contain the username of the gifter */
-  sender?: string
+  sender?: string;
 
   /** Unknown. Only exists if the sub is gifted. */
-  subExtension?: boolean
+  subExtension?: boolean;
 
   /**
    * Whether the current event is a community gift.
@@ -173,14 +171,14 @@ export interface SubscriberLatestEvent extends Event {
    *       initial bulk gift event will not contain this field, but since SE emits each gifted sub
    *       as an event, those subsequent fields receive `isCommunityGift` as true.
    */
-  isCommunityGift?: boolean
+  isCommunityGift?: boolean;
 
   /**
    * Unknown
    *
    * Appears to only exist for bulk-gift sub giftee events.
    */
-  playedAsCommunityGift?: boolean
+  playedAsCommunityGift?: boolean;
 }
 
 /**
@@ -188,29 +186,29 @@ export interface SubscriberLatestEvent extends Event {
  */
 export interface CheerLatestEvent extends Event {
   /** The number of bits cheered */
-  amount: number
+  amount: number;
   /** Unknown */
-  count: number
+  count: number;
   /** Whether the event is a test event fired from the StreamElements overlay design interface. */
-  isTest: boolean
+  isTest: boolean;
   /** Unknown */
-  items: unknown[]
+  items: unknown[];
   /** Accompanying message */
-  message: string
+  message: string;
   /** Unknown */
-  month: string
+  month: string;
   /** Username of the sender */
-  name: string
+  name: string;
   /** Unknown */
-  originalEventName: string
+  originalEventName: string;
   /** Unknown */
-  sessionTop: boolean
+  sessionTop: boolean;
   /** Unknown. */
-  tier: SubscribeTier
+  tier: SubscribeTier;
   /** Whether text-to-speech is requested. */
-  tts: boolean
+  tts: boolean;
   /** Unknown */
-  type: string
+  type: string;
 }
 
 /**
@@ -218,27 +216,27 @@ export interface CheerLatestEvent extends Event {
  */
 export interface TipLatestEvent extends Event {
   /** The tip amount */
-  amount: number
+  amount: number;
   /** Unknown */
-  count: number
+  count: number;
   /** Whether the event is a test event fired from the StreamElements overlay design interface. */
-  isTest: boolean
+  isTest: boolean;
   /** Unknown */
-  items: unknown[]
+  items: unknown[];
   /** Accompanying message */
-  message: string
+  message: string;
   /** Unknown */
-  month: string
+  month: string;
   /** Username of the sender */
-  name: string
+  name: string;
   /** Unknown */
-  originalEventName: string
+  originalEventName: string;
   /** Unknown */
-  sessionTop: boolean
+  sessionTop: boolean;
   /** Unknown */
-  tier: SubscribeTier
+  tier: SubscribeTier;
   /** Unknown */
-  type: string
+  type: string;
 }
 
 /**
@@ -246,47 +244,47 @@ export interface TipLatestEvent extends Event {
  */
 export interface RaidLatestEvent extends Event {
   /** Number of viewers raiding */
-  amount: number
+  amount: number;
   /** Unknown */
-  count: number
+  count: number;
   /** Whether the event is a test event fired from the StreamElements overlay design interface. */
-  isTest: boolean
+  isTest: boolean;
   /** Unknown */
-  items: unknown[]
+  items: unknown[];
   /** Unknown */
-  month: string
+  month: string;
   /** Username of the raid initiator */
-  name: string
+  name: string;
   /** Unknown */
-  originalEventName: string
+  originalEventName: string;
   /** Unknown */
-  sessionTop: boolean
+  sessionTop: boolean;
   /** Unknown */
-  tier: SubscribeTier
+  tier: SubscribeTier;
   /** Unknown */
-  type: string
+  type: string;
 }
 
 /**
  * The services that are supported on StreamElements.
  */
 export enum SupportedService {
-  Twitch = 'twitch',
-  Youtube = 'youtube',
-  Mixer = 'mixer',
+  Twitch = "twitch",
+  Youtube = "youtube",
+  Mixer = "mixer",
 }
 
 /**
  * The badges that are supported on StreamElements.
  */
 export enum SupportedBadge {
-  Broadcaster = 'broadcaster',
-  Moderator = 'moderator',
-  VIP = 'vip',
-  ArtistBadge = 'artist-badge',
-  Subscriber = 'subscriber',
-  Premium = 'premium',
-  Partner = 'partner',
+  Broadcaster = "broadcaster",
+  Moderator = "moderator",
+  VIP = "vip",
+  ArtistBadge = "artist-badge",
+  Subscriber = "subscriber",
+  Premium = "premium",
+  Partner = "partner",
 }
 
 /**
@@ -294,11 +292,11 @@ export enum SupportedBadge {
  */
 export interface Badge {
   /** The badge type identifier */
-  type: SupportedBadge
+  type: SupportedBadge;
   /** The version of the badge */
-  version: string
+  version: string;
   /** The URL to the badge icon */
-  url: string
+  url: string;
 }
 
 /**
@@ -306,26 +304,26 @@ export interface Badge {
  */
 export interface Emote {
   /** The emote type (provider) */
-  type: string
+  type: string;
   /** The emote identifier, for example "kappa" */
-  name: string
+  name: string;
   /** The unique identifier of the emote */
-  id: string
+  id: string;
   /** Whether the emote is a gif or not */
-  gif: boolean
+  gif: boolean;
   /** The URLs to the emote image */
   urls: {
     /** 1x Resolution */
-    '1': string
+    "1": string;
     /** 2x Resolution */
-    '2': string
+    "2": string;
     /** 4x Resolution */
-    '4': string
-  }
+    "4": string;
+  };
   /** The character at which the emote starts. */
-  start: number
+  start: number;
   /** The character at which the emote ends. */
-  end: number
+  end: number;
 }
 
 /**
@@ -333,114 +331,114 @@ export interface Emote {
  */
 export interface MessageEvent extends Event {
   /** Represents the platform the message is sent from */
-  service: SupportedService
+  service: SupportedService;
   data: {
     /** UNIX Timestamp of when the message was sent */
-    time: number
+    time: number;
     tags: {
       /** Unknown */
-      'badge-info': string
+      "badge-info": string;
 
       /**
        * Comma-separated string of tags and versions in format "<badge>/<version>,"[]
        *
        * Prefer using data.badges
        */
-      badges: string
+      badges: string;
 
       /**
        * Color of the username.
        *
        * Prefer using data.displayColor.
        */
-      color: string
+      color: string;
 
       /**
        * The user's name as it should be displayed.
        *
        * Prefer using data.nick
        */
-      'display-name': string
+      "display-name": string;
 
       /**
        * Comma-separated string of emote-id and character slice "<emote-id>:<begin>-<end>,"[]
        *
        * Prefer using data.emotes
        */
-      emotes: string
+      emotes: string;
 
       /** Whether this is the user's first time chatting in this channel */
-      'first-msg': '0' | '1'
+      "first-msg": "0" | "1";
 
       /** Unknown */
-      flags: string
+      flags: string;
 
       /** The unique message ID */
-      id: string
+      id: string;
 
       /** Whether the user is a moderator */
-      mod: '0' | '1'
+      mod: "0" | "1";
 
       /** Whether the user is returning. */
-      'returning-chatter': '0' | '1'
+      "returning-chatter": "0" | "1";
 
       /** Unknown */
-      'room-id': string
+      "room-id": string;
 
       /** Whether the user is a subscriber */
-      subscriber: '0' | '1'
+      subscriber: "0" | "1";
 
       /**
        * UNIX Timestamp of when the message was sent.
        *
        * Prefer using data.time
        */
-      'tmi-sent-ts': string
+      "tmi-sent-ts": string;
 
       /** Whether the user is using Twitch Turbo */
-      'turbo': '0' | '1'
+      turbo: "0" | "1";
 
       /** The twitch user's ID */
-      'user-id': string
+      "user-id": string;
 
       /** Unknown */
-      'user-type': string
+      "user-type": string;
 
       /** If this message is a reply, then the displayName of the author of the original message.
        */
-      'reply-parent-display-name'?: string
+      "reply-parent-display-name"?: string;
 
       /** If this message is a reply, then the body of the original message. */
-      'reply-parent-msg-body'?: string
+      "reply-parent-msg-body"?: string;
 
       /** If this message is a reply, then the id of the original message */
-      'reply-parent-msg-id'?: string
+      "reply-parent-msg-id"?: string;
 
       /** If this message is a reply, then the id of the original message's author user. */
-      'reply-parent-user-id'?: string
+      "reply-parent-user-id"?: string;
 
       /** If this message is a reply, then the user nick of the original message's author */
-      'reply-parent-user-login'?: string
-    }
+      "reply-parent-user-login"?: string;
+    };
     /** The user's nickname */
-    nick: string
+    nick: string;
     /** The user's ID */
-    userId: string
+    userId: string;
     /** The user's username as it should be displayed. */
-    displayName: string
+    displayName: string;
     /** The user's username color to use */
-    displayColor: string
+    displayColor: string;
     /** The badges the user has */
-    badges: Badge[]
+    badges: Badge[];
     /** The channel to send the message to */
-    channel: string
+    channel: string;
     /** The message text, including emotes in it. */
-    text: string
+    text: string;
     /** The emotes that are contained within the message */
-    emotes: Emote[]
+    emotes: Emote[];
     /** The unique message identifier */
-    msgId: string
-  }
+    msgId: string;
+  };
 }
 
 /**
@@ -448,7 +446,7 @@ export interface MessageEvent extends Event {
  */
 export interface DeleteMessageEvent extends Event {
   /** The deleted message id */
-  msgId: string
+  msgId: string;
 }
 
 /**
@@ -456,34 +454,36 @@ export interface DeleteMessageEvent extends Event {
  */
 export interface DeleteMessagesEvent extends Event {
   /** The user of who the messages should be deleted */
-  userId: string
+  userId: string;
 }
 
 /**
  * Event fired for widget-button
  */
-export interface WidgetButtonEvent extends Event {
-}
+export interface WidgetButtonEvent extends Event {}
 
 /**
  * Base object that StreamElements fires in a window.event.
  */
 export interface EventContainer {
-  listener: WindowEventType
-  event: Event | EventContainer
+  listener: WindowEventType;
+  event: Event | EventContainer;
 }
 
 export interface EventObject {
-  detail: EventContainer
+  detail: EventContainer;
   /** Possibly other fields */
-  [x: string | number | symbol]: unknown
+  [x: string | number | symbol]: unknown;
 }
 
 type EventDelegateMap = {
-  [eventType in WindowEventType]?: (evt: Event) => void
+  [eventType in WindowEventType]?: (evt: Event) => void;
 };
 
-export function delegateEvent(eventObject: EventObject, delegates: EventDelegateMap) {
+export function delegateEvent(
+  eventObject: EventObject,
+  delegates: EventDelegateMap
+) {
   const { event } = eventObject.detail;
   const evtHandler = delegates[eventObject.detail.listener] || (() => {});
 
@@ -513,7 +513,7 @@ export function delegateEvent(eventObject: EventObject, delegates: EventDelegate
 }
 
 export enum WindowEvent {
-  EventReceived = 'onEventReceived',
-  WidgetLoad = 'onWidgetLoad',
-  SessionUpdate = 'onSessionUpdate',
+  EventReceived = "onEventReceived",
+  WidgetLoad = "onWidgetLoad",
+  SessionUpdate = "onSessionUpdate",
 }
